@@ -1,0 +1,656 @@
+/* ===============================
+   Reset & Global
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===============================
+   Library Container
+================================ */
+.library-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4fc8f3 0%, #366ac6 100%);
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+}
+
+.library-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ===============================
+   Header Styles
+================================ */
+.library-header {
+  text-align: center;
+  margin-bottom: 50px;
+  color: white;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-icon {
+  font-size: 4rem;
+  margin-bottom: 15px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.library-header h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: -1px;
+}
+
+.library-header p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  font-weight: 300;
+}
+
+/* ===============================
+   Filters Section
+================================ */
+.filters-section {
+  background: white;
+  border-radius: 24px;
+  padding: 35px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  margin-bottom: 35px;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filters-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.filter-icon {
+  font-size: 1.8rem;
+}
+
+.filters-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Search Input */
+.search-wrapper {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 15px 14px 45px;
+  border-radius: 12px;
+  border: 2px solid #e0e0e0;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.search-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  background: white;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+/* Select Dropdown */
+.filter-select {
+  width: 100%;
+  padding: 14px 15px;
+  border-radius: 12px;
+  border: 2px solid #e0e0e0;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #fafafa;
+  font-weight: 500;
+}
+
+.filter-select:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  background: white;
+}
+
+.filter-select:hover {
+  border-color: #667eea;
+}
+
+/* ===============================
+   Searchable Select (IMPORTANT)
+================================ */
+.searchable-select {
+  position: relative;
+  width: 100%;
+  z-index: 50;
+}
+
+.select-box {
+  padding: 14px 15px;
+  border-radius: 12px;
+  border: 2px solid #e0e0e0;
+  cursor: pointer;
+  background: #fafafa;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 51;
+}
+
+.select-box:hover {
+  border-color: #667eea;
+  background: white;
+}
+
+.select-dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  overflow: hidden;
+  animation: dropdownSlide 0.3s ease-out;
+}
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.select-search {
+  width: 100%;
+  padding: 12px 15px;
+  border: none;
+  border-bottom: 2px solid #f0f0f0;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.select-search:focus {
+  background: #fafafa;
+}
+
+.select-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.select-dropdown li {
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.select-dropdown li:hover {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.no-option {
+  padding: 15px;
+  text-align: center;
+  color: #999;
+  font-style: italic;
+}
+
+/* ===============================
+   Results Count
+================================ */
+.results-count {
+  margin-bottom: 25px;
+  animation: fadeIn 0.6s ease-out 0.4s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.results-badge {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ===============================
+   Books Grid
+================================ */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 30px;
+  animation: fadeIn 0.6s ease-out 0.6s both;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===============================
+   Book Card
+================================ */
+.book-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.book-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.book-card-accent {
+  height: 8px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.book-card-body {
+  padding: 25px;
+}
+
+/* Book Header */
+.book-header {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.book-icon-wrapper {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.book-info {
+  flex: 1;
+}
+
+.book-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 5px 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.book-card:hover .book-title {
+  color: #667eea;
+}
+
+.book-author {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Book Meta */
+.book-meta {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.book-genre-badge {
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.book-year-badge {
+  padding: 6px 14px;
+  background: #f0f0f0;
+  color: #666;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Book Footer */
+.book-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 2px solid #f5f5f5;
+}
+
+.book-availability {
+  display: flex;
+  align-items: center;
+}
+
+.copies-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.copies-badge.high {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.copies-badge.medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.copies-badge.low {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.copies-number {
+  font-size: 1.3rem;
+}
+
+.copies-text {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ===============================
+   Borrow Button
+================================ */
+.borrow-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.borrow-btn:hover:not(.disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5);
+}
+
+.borrow-btn:active:not(.disabled) {
+  transform: scale(0.98);
+}
+
+.borrow-btn.disabled {
+  background: linear-gradient(135deg, #d1d5db, #9ca3af);
+  color: #6b7280;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ===============================
+   Empty State
+================================ */
+.empty-state {
+  background: white;
+  padding: 80px 40px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.6s ease-out 0.6s both;
+}
+
+.empty-icon {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  opacity: 0.3;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.empty-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 10px 0;
+}
+
+.empty-text {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+.book-image-wrapper {
+  width: 120px;
+  height: 170px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f3f3f3;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover .book-image {
+  transform: scale(1.05);
+}
+
+/* ===============================
+   Responsive Design
+================================ */
+@media (max-width: 1024px) {
+  .filters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .library-container {
+    padding: 25px 15px;
+  }
+
+  .library-header {
+    margin-bottom: 35px;
+  }
+
+  .header-icon {
+    font-size: 3rem;
+  }
+
+  .library-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .library-header p {
+    font-size: 1rem;
+  }
+
+  .filters-section {
+    padding: 25px;
+  }
+
+  .filters-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .books-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .book-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .borrow-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .library-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .filters-section {
+    padding: 20px;
+  }
+
+  .book-card-body {
+    padding: 20px;
+  }
+
+  .book-title {
+    font-size: 1.2rem;
+  }
+
+  .empty-state {
+    padding: 60px 30px;
+  }
+}
